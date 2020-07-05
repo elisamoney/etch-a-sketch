@@ -3,21 +3,27 @@
     padding: 0;
     color: black;
     background-color: white;
+    font-family: Yellowtail, cursive;
+    font-weight: lighter;
 }
 
 h1 {
     text-align: center;
-    margin: 10px 0px;
+    font-size: 80px;
+    color: #b92828;
+    margin: 10px 0 0 0;
 }
 
 #grid-container {
     text-align: center;
     display: grid;
     grid-template-columns: repeat(16, 1fr);
-    height: 960px;
-    width: 960px;
-    border: 1px dashed black;
+    height: 500px;
+    width: 500px;
+    border: 10px solid #b92828;
+    border-radius: 10px;
     margin: auto;
+    box-shadow: 0 0 15px #141414;
 }
 
 .grid {
@@ -26,6 +32,24 @@ h1 {
 
 .paint {
     background-color: rgba(136, 178, 255, 0.575);
-    cursor: pointer;
+    cursor: crosshair;
     transition: all 0.5s ease;
+}
+
+#button-container {
+    text-align: center;
+    margin: 0 0 10px 0;
+}
+
+#reset {
+    background-color: #b92828;
+    font-size: 20px;
+    color: #ffffff;
+    text-shadow: 0 0 10px black;
+    padding: 3px 10px 3px 3px;
+    border-radius: 10%;
+}
+
+#reset:hover {
+    cursor: pointer;
 }

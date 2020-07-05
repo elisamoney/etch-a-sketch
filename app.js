@@ -1,4 +1,10 @@
 const gridContainer_div = document.getElementById("grid-container");
+const reset_btn = document.getElementById("reset");
+
+let grids;
+
+reset_btn.addEventListener("click", reset);
+
 
 let click = false;
 
@@ -13,6 +19,7 @@ function makeGrid(x) {
         // newDiv.innerHTML = i + 1;
         gridContainer_div.appendChild(newDiv);
     }
+    grids = document.getElementsByClassName("grid");
 }
 
 function paint(a) {
@@ -20,6 +27,13 @@ function paint(a) {
         let currGrid = document.getElementById(a);
         currGrid.classList.add("paint")
     }
+}
+
+function reset() {
+    for (let i = 0; i < grids.length-1; i++) {
+        grids[i].classList.remove("paint")
+    }
+    console.log("reset")
 }
 
 makeGrid(16);

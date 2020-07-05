@@ -2,13 +2,16 @@ const gridContainer_div = document.getElementById("grid-container");
 const reset_btn = document.getElementById("reset");
 const canvas_btn = document.getElementById("canvas");
 const startPrompt_p = document.getElementById("start-prompt");
+const randomColour_btn = document.getElementById("random-colour");
 
 let click = false;
 let grids;
 let newSize;
+let paintColour = "black";
 
 reset_btn.addEventListener("click", reset);
 canvas.addEventListener("click", getCanvas);
+randomColour_btn.addEventListener("click", randomColour);
 
 function makeGrid(x) {
     for (i = 0; i < x**2; i++) {
@@ -16,7 +19,9 @@ function makeGrid(x) {
         newDiv.classList.add("grid");
         newDiv.id = i + 1;
         gridContainer_div.addEventListener("mousedown", () => {click = true});
-        gridContainer_div.addEventListener("mouseup", () => {click = false});
+        gridContainer_div.addEventListener("mouseup", () => {
+            click = false;
+        });
         newDiv.addEventListener("mouseover", () => paint(newDiv.id));
         // newDiv.innerHTML = i + 1;
         gridContainer_div.appendChild(newDiv);
@@ -26,11 +31,19 @@ function makeGrid(x) {
     gridContainer_div.style.gridTemplateColumns = `repeat(${x}, 1fr)`
 }
 
+function randomColour() {
+    let r = Math.floor(Math.random()*256);
+    let g = Math.floor(Math.random()*256);
+    let b = Math.floor(Math.random()*256);
+    paintColour = `rgb(${r},${g},${b})`;
+    return paintColour;
+}
+
 function paint(a) {
     if (click === true) {
         let currGrid = document.getElementById(a);
-        currGrid.classList.add("paint")
-    }
+        currGrid.style.backgroundColor = `${paintColour}`;
+    } 
 }
 
 function reset() {

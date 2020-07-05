@@ -17,13 +17,13 @@ h1 {
 #grid-container {
     text-align: center;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
     height: 500px;
     width: 500px;
     border: 10px solid #b92828;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: auto;
     box-shadow: 0 0 15px #141414;
+    cursor: crosshair;
 }
 
 .grid {
@@ -31,9 +31,8 @@ h1 {
 }
 
 .paint {
-    background-color: rgba(136, 178, 255, 0.575);
-    cursor: crosshair;
-    transition: all 0.5s ease;
+    background-color: #000000;
+    transition: all 0.1s ease;
 }
 
 #button-container {
@@ -41,15 +40,21 @@ h1 {
     margin: 0 0 10px 0;
 }
 
-#reset {
+button {
     background-color: #b92828;
     font-size: 20px;
     color: #ffffff;
     text-shadow: 0 0 10px black;
     padding: 3px 10px 3px 3px;
-    border-radius: 10%;
+    border-radius: 10px;
+    margin: 0 50px;
 }
 
-#reset:hover {
+button:hover {
     cursor: pointer;
+}
+
+p {
+    font-size: 40px;
+    margin: auto;
 }

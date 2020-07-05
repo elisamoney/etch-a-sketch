@@ -1,12 +1,14 @@
 const gridContainer_div = document.getElementById("grid-container");
 const reset_btn = document.getElementById("reset");
-
-let grids;
-
-reset_btn.addEventListener("click", reset);
-
+const canvas_btn = document.getElementById("canvas");
+const startPrompt_p = document.getElementById("start-prompt");
 
 let click = false;
+let grids;
+let newSize;
+
+reset_btn.addEventListener("click", reset);
+canvas.addEventListener("click", getCanvas);
 
 function makeGrid(x) {
     for (i = 0; i < x**2; i++) {
@@ -20,6 +22,8 @@ function makeGrid(x) {
         gridContainer_div.appendChild(newDiv);
     }
     grids = document.getElementsByClassName("grid");
+    startPrompt_p.remove();
+    gridContainer_div.style.gridTemplateColumns = `repeat(${x}, 1fr)`
 }
 
 function paint(a) {
@@ -31,9 +35,14 @@ function paint(a) {
 
 function reset() {
     for (let i = 0; i < grids.length-1; i++) {
-        grids[i].classList.remove("paint")
+        grids[i].classList.remove("paint");
     }
-    console.log("reset")
 }
 
-makeGrid(16);
+function getCanvas() {
+    newSize = Number(prompt("What size grid?", ""));
+    while (!newSize && newSize != "") {
+        newSize = Number(prompt("Please enter a valid number.", ""));
+    }
+    makeGrid(newSize);
+}

@@ -7,11 +7,17 @@
     font-weight: lighter;
 }
 
+
 h1 {
     text-align: center;
-    font-size: 80px;
+    font-size: 70px;
     color: #b92828;
-    margin: 10px 0 0 0;
+    margin: 5px auto;
+    text-decoration: underline overline;
+    text-shadow: 0 0 10px rgb(223, 222, 222);
+    width: 500px;
+    border-radius: 10px;
+    background-color: rgba(112, 194, 194, 0.541);
 }
 
 #grid-container {
@@ -32,7 +38,8 @@ h1 {
 
 #button-container {
     text-align: center;
-    margin: 0 0 10px 0;
+    margin: 0 auto 10px auto;
+    width: auto;
 }
 
 button {
@@ -47,9 +54,4 @@ button {
 
 button:hover {
     cursor: pointer;
-}
-
-p {
-    font-size: 40px;
-    margin: auto;
 }

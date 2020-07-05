@@ -19,16 +19,14 @@ function makeGrid(x) {
         newDiv.classList.add("grid");
         newDiv.id = i + 1;
         gridContainer_div.addEventListener("mousedown", () => {click = true});
-        gridContainer_div.addEventListener("mouseup", () => {
-            click = false;
-        });
+        gridContainer_div.addEventListener("mouseup", () => {click = false});
         newDiv.addEventListener("mouseover", () => paint(newDiv.id));
         // newDiv.innerHTML = i + 1;
         gridContainer_div.appendChild(newDiv);
     }
     grids = document.getElementsByClassName("grid");
-    startPrompt_p.remove();
-    gridContainer_div.style.gridTemplateColumns = `repeat(${x}, 1fr)`
+    gridContainer_div.style.gridTemplateColumns = `repeat(${x}, 1fr)`;
+    return grids;
 }
 
 function randomColour() {
@@ -47,9 +45,8 @@ function paint(a) {
 }
 
 function reset() {
-    for (let i = 0; i < grids.length-1; i++) {
-        grids[i].classList.remove("paint");
-    }
+    let node = document.querySelectorAll(".grid");
+    node.forEach(n => n.remove());
 }
 
 function getCanvas() {
